@@ -20,4 +20,4 @@ This site highlights my **skills**, **projects**, and **professional journey** i
 ---
 
 ✨ *Feel free to explore and connect with me!*  
-👉 [View My Portfolio](https://bezawadadisneypallavi.github.io/)
+👉 [View My Portfolio](https://disney35.github.io/Disney_Portfolio/)
