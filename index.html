@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bezawada Disney Pallavi — Portfolio</title>
+  <meta name="description" content="Bezawada Disney Pallavi — Software Engineer, Test Automation, FullStack Development, Cloud Enthusiast (AWS, GCP)" />
+  <style>
+    :root{
+      --bg: linear-gradient(120deg, #77f1cc, #f5bb8e); --surface:#41422a; --muted:#e3eeda; --text:#e2e8f0; --accent:#6babfa; --glass: rgba(148,163,184,0.06);
+      --radius:14px; --card-radius:12px; --max-w:1100px; --container-pad:20px; --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased}
+    a{color:var(--accent); text-decoration:none}
+    .wrap{max-width:var(--max-w); margin:0 auto; padding:var(--container-pad)}
+
+    /* NAV */
+    nav{position:fixed; left:0; right:0; top:0; height:64px; backdrop-filter:blur(6px); background:linear-gradient(180deg, rgba(15,23,42,0.85), rgba(15,23,42,0.6)); border-bottom:1px solid rgba(148,163,184,0.06); z-index:40}
+    .nav-inner{max-width:var(--max-w); margin:0 auto; padding:0 20px; height:100%; display:flex; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6d42f0);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .brand h1{font-size:16px;margin:0}
+    .nav-links{display:flex; gap:18px; align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:10px;color:var(--muted);font-size:14px}
+    .nav-links a:hover{background:rgba(96,165,250,0.07);color:var(--text)}
+    .cta{padding:10px 16px;background:linear-gradient(90deg,var(--accent),#1a0360); color:#021124;border-radius:12px;font-weight:600}
+    /* hero */
+
+    .hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 84px;
+}
+
+/* Remove the grid layout — make everything centered */
+.hero-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 20px;
+  color: var(--accent);
+  margin: 0 0 8px;
+}
+
+.intro h1 {
+  font-size: 40px;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.intro p {
+  color: var(--muted);
+  margin: 0 auto 18px;
+  max-width: 900px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), #7f64e2);
+  color: #021124;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(148,163,184,0.08);
+  color: var(--text);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tag {
+  background: rgba(148,163,184,0.1);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+    /* card */
+    .card{background:var(--surface); padding:20px;border-radius:var(--card-radius);box-shadow:0 6px 20px rgba(2,6,23,0.6); border:1px solid rgba(148,163,184,0.04)}
+    .profile-pic{width:100%; height:320px; border-radius:12px; background:linear-gradient(135deg,#3b82f6,#7c7e41); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px}
+
+    /* sections */
+    section{padding:50px 0}
+    .section-title{font-size:26px; margin:0 0 18px}
+    .muted{color:var(--muted)}
+
+    /* Experience */
+    .exp-list{display:grid; gap:18px}
+    .exp-item{display:flex; gap:18px; align-items:flex-start}
+    .exp-meta{min-width:180px;color:var(--muted); font-size:14px}
+    .exp-body h4{margin:0 0 6px}
+    .exp-body ul{margin:8px 0 0 18px;color:var(--muted)}
+
+    /* Skills grid */
+    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px}
+    .tags{display:flex; gap:8px; flex-wrap:wrap}
+    .tag{background:rgba(96,165,250,0.08); padding:8px 12px;border-radius:999px; color:var(--text); font-size:13px}
+
+    /* Projects */
+    .projects{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
+    .project{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(76, 60, 45, 0.02), rgba(255,255,255,0.01)); border:1px solid rgba(105, 91, 50, 0.04)}
+    .project h3{margin:0 0 8px}
+    .project p{color:var(--muted); margin:0}
+
+    /* contact */
+    .contact-grid{display:grid; grid-template-columns:1fr 320px; gap:20px}
+    .contact-item{padding:14px;border-radius:12px;background:var(--glass); border:1px solid rgba(148,163,184,0.04); display:flex; gap:12px; align-items:center}
+
+    footer{padding:28px 0; text-align:center; color:var(--muted); border-top:1px solid rgba(148,163,184,0.03)}
+
+    /* responsiveness */
+    @media (max-width:920px){
+      .hero-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .nav-links{display:none}
+    }
+    .intro-header {
+  text-align: center;
+}
+
+.intro-header h1,
+.intro-header h2 {
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="brand">
+          <div class="logo">
+            <img src="image.jpg"alt="Logo" style="width:60px; height:55px; border-radius:70%; object-fit:cover; border:2px solid #cc0099;" />
+          </div>
+        <div> 
+          <h1 style="font-size:14px;margin:0; color:#f3c706">Bezawada Disney Pallavi</h1>
+          <div style="font-size:12px;color:var(--muted)">Software Engineer | Test Automation | FullStack Development | Cloud Enthusiast (AWS, GCP)</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a class="cta" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap" style="padding-top:28px">
+  <section class="hero wrap" id="home" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+  
+  <div class="hero-grid" style="width: 100%; text-align: center;">
+    <div class="intro" style="max-width: 1000px; margin: 0 auto;">
+      
+      <!-- Centered Headings -->
+      <div style="margin-bottom: 25px;">
+        <h2 class="section-title" style="margin: 0; color: #2a0457; font-size: 28px">Hi, I’m</h2>
+        <h1 class="section-title" style="margin: 0; color: #342101;">Bezawada Disney Pallavi</h1>
+      </div>
+      <br>
+      
+      <!-- Justified Paragraph -->
+      <p class="muted"
+        style="display: block; margin:0;  font-size: 17px; font-weight: bold; text-align: justify; color:rgb(105, 9, 62)">
+        A passionate Computer Science graduate with hands-on experience in Software Testing, Full Stack Development, and Cloud Technologies. <br><br>
+        During my training at Qualizeal, I worked as an Associate Software Development Engineer in Testing (ASDET), gaining practical experience in Manual and Automation Testing using Selenium with Java, Maven, TestNG, and Eclipse. I developed and executed test cases, collaborated with developers, and ensured high-quality software delivery following Agile practices. <br><br>
+        Earlier, at DataValley, I worked as a Full Stack Developer Intern, where I built responsive web applications using HTML, CSS, JavaScript, SQL, and Java, combining both front-end design and back-end functionality. <br><br>
+        I have also explored Python, Linux, Data Structures, and DBMS, along with cloud platforms such as AWS and Google Cloud Platform (GCP). <br><br>
+        My Machine Learning and Deep Learning projects, especially those involving Image Recognition using Convolutional Neural Networks (CNNs), have strengthened my analytical and problem-solving abilities. <br><br>
+        I’m deeply interested in creating efficient, reliable, and scalable software systems — from development to testing and deployment. I enjoy working in collaborative environments, learning new technologies, and continuously improving the quality of the products I help build.
+      </p>
+
+      <!-- Buttons -->
+      <div class="hero-actions" style="margin-top: 30px;">
+        <a href="https://drive.google.com/file/d/1fmmnth6m9hVXYeJHzd0797UYH2wZ8-JC/view?usp=sharing" target="_blank">
+          <button class="btn btn-primary" style=" font-size: 20px;">Download Resume</button>
+        </a> 
+        <a class="btn btn-ghost" href="#projects" style="color: #460404; font-size: 18px;">View Projects</a>
+      </div>
+      
+      
+
+      <!-- Tags -->
+      <div class="tags" style="margin-top: 25px;">
+        <span class="tag" style="color: #460404;font-size: 20px;"><b>Python</b></span>
+        <span class="tag" style="color: #460404;font-size: 20px;"><b>Java</b></span>
+        <span class="tag" style="color: #460404;font-size: 20px;"><b>AWS</b></span>
+        <span class="tag" style="color: #460404;font-size: 20px;"><b>Front-End Development</b></span>
+        <span class="tag" style="color: #460404;font-size: 20px;"><b>Software Testing</b></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h3 class="section-title" style="text-align:center; color: #034cac;">About</h3>
+
+  <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+    <p class="muted" style="margin:0; text-align: justify; font-size: 17px; line-height: 1.8; color: #f5f5f5;">
+      I am a <b>Computer Science graduate</b> with hands-on experience in <b>Software Testing</b>, <b>Full Stack Development</b>, and <b>Cloud Platforms</b>. I have worked on <b>Manual and Automation Testing</b> using <b>Selenium with Java</b>, utilizing tools such as <b>TestNG</b>, <b>Maven</b>, and <b>Eclipse</b> to execute and manage test automation frameworks. I have also built <b>responsive web applications</b> using <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, <b>Java</b>, and <b>Python</b>. Additionally, I have developed projects in <b>Machine Learning</b>, <b>Deep Learning</b>, and <b>Computer Vision</b>, focusing on <b>Image Recognition</b> using <b>Convolutional Neural Networks (CNNs)</b>.
+    </p>
+  </div>
+</section>
+
+
+
+<section id="skills">
+  <h3 class="section-title" style="text-align: center; color: #034cac;">Technical Skills</h3>
+      <div class="grid">
+        <!-- Front-End -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Front-End</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">HTML</span>
+            <span class="tag" style="font-size: 17px;">CSS</span>
+            <span class="tag" style="font-size: 17px;">JavaScript</span>
+            <span class="tag" style="font-size: 17px;">TypeScript</span>
+            <span class="tag" style="font-size: 17px;">React.js</span>
+            <span class="tag" style="font-size: 17px;">Angular</span>
+            <span class="tag" style="font-size: 17px;">Bootstrap</span>
+            <span class="tag" style="font-size: 17px;">XML</span>
+          </div>
+        </div>
+    
+        <!-- Back-End -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Back-End</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">C</span>
+            <span class="tag" style="font-size: 17px;">R</span>
+            <span class="tag" style="font-size: 17px;">Java</span>
+            <span class="tag" style="font-size: 17px;">Python</span>
+            <span class="tag" style="font-size: 17px;">PHP</span>
+            <span class="tag" style="font-size: 17px;">Kotlin</span>
+            <span class="tag" style="font-size: 17px;">Node.js</span>
+            <span class="tag" style="font-size: 17px;">Spring Boot</span>
+          </div>
+        </div>
+    
+        <!-- Frameworks & Libraries -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Frameworks & Libraries</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">Scikit-learn</span>
+            <span class="tag" style="font-size: 17px;">TensorFlow</span>
+            <span class="tag" style="font-size: 17px;">Keras</span>
+            <span class="tag" style="font-size: 17px;">PyTorch</span>
+            <span class="tag" style="font-size: 17px;">OpenCV</span>
+            <span class="tag" style="font-size: 17px;">Pandas</span>
+            <span class="tag" style="font-size: 17px;">NumPy</span>
+            <span class="tag" style="font-size: 17px;">Matplotlib</span>
+            <span class="tag" style="font-size: 17px;">YOLO</span>
+          </div>
+        </div>
+    
+        <!-- Testing Skills -->
+        <div class="card" style="width:320px; height:370px;">
+          <h4 style="font-size: 17px;">Testing Skills</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">Manual Testing</span>
+            <span class="tag" style="font-size: 17px;">API Testing</span>
+            <span class="tag" style="font-size: 17px;">QA Practices</span>
+            <span class="tag" style="font-size: 17px;">Debugging</span>
+            <span class="tag" style="font-size: 17px;">Automation Testing</span>
+            <span class="tag" style="font-size: 17px;">Software Testing</span>
+            <span class="tag" style="font-size: 17px;">Performance Testing</span>
+            <span class="tag" style="font-size: 17px;">Bug Tracking</span>
+          </div>
+        </div>
+    
+        <!-- Testing Tools -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Testing Tools</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">Selenium</span>
+            <span class="tag" style="font-size: 17px;">TestNG</span>
+            <span class="tag" style="font-size: 17px;">Maven</span>
+          </div>
+        </div>
+
+        <!-- Development Tools / IDEs -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Development Tools & IDEs</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">Git</span>
+            <span class="tag" style="font-size: 17px;">GitHub</span>
+            <span class="tag" style="font-size: 17px;">VS Code</span>
+            <span class="tag" style="font-size: 17px;">Eclipse IDE</span>
+            <span class="tag" style="font-size: 17px;">Android Studio</span>
+          </div>
+        </div>
+    
+        <!-- Data Analysis & Reporting -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Data Analysis & Reporting</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">MS Office</span>
+            <span class="tag" style="font-size: 17px;">Tableau</span>
+          </div>
+        </div>
+    
+        <!-- Cloud & Database -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Cloud & Database</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">AWS</span>
+            <span class="tag" style="font-size: 17px;">GCP</span>
+            <span class="tag" style="font-size: 17px;">SQL</span>
+            <span class="tag" style="font-size: 17px;">DBMS</span>
+            <span class="tag" style="font-size: 17px;">MongoDB</span>
+          </div>
+        </div>
+    
+        <!-- Data Structures & Algorithms -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Data Structures & Algorithms</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">Array</span>
+            <span class="tag" style="font-size: 17px;">Linked List</span>
+            <span class="tag" style="font-size: 17px;">Stack</span>
+            <span class="tag" style="font-size: 17px;">Queue</span>
+            <span class="tag" style="font-size: 17px;">Tree</span>
+            <span class="tag" style="font-size: 17px;">Graph</span>
+            <span class="tag" style="font-size: 17px;">Hashing</span>
+            <span class="tag" style="font-size: 17px;">Sorting</span>
+            <span class="tag" style="font-size: 17px;">Searching</span>
+          </div>
+        </div>
+    
+        <!-- Project Management & Collaboration -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Project Management & Collaboration</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">Agile Scrum</span>
+            <span class="tag" style="font-size: 17px;">SDLC</span>
+            <span class="tag" style="font-size: 17px;">STLC</span>
+            <span class="tag" style="font-size: 17px;">Sprint Planning</span>
+            <span class="tag" style="font-size: 17px;">Stand-Up Meetings</span>
+            <span class="tag" style="font-size: 17px;">Team Collaboration</span>
+          </div>
+        </div>
+    
+        <!-- Operating Systems & Networking -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Operating Systems & Networking</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">Windows</span>
+            <span class="tag" style="font-size: 17px;">Linux</span>
+            <span class="tag" style="font-size: 17px;">Computer Networking</span>
+          </div>
+        </div>
+    
+        <!-- Other Skills -->
+        <div class="card">
+          <h4 style="font-size: 17px;">Other Skills</h4>
+          <div class="tags">
+            <span class="tag" style="font-size: 17px;">Machine Learning</span>
+            <span class="tag" style="font-size: 17px;">Deep Learning</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h3 class="section-title" style="text-align:center; color: #034cac; ">Experience</h3>
+      <div class="exp-list">
+        <div class="exp-item card">
+          <div class="exp-meta" style="font-weight:850; font-size:18px; text-align: justify; font-size: 17px;">Qualizeal<br><span style="font-weight:600; font-size:14px;">Jul 2024 – Dec 2024<br><br>Software Testing, <br>Selenium with JAVA,<br>Maven, TestNG,<br> Manual Testing</span></div>
+          <div class="exp-body">
+            <h4>Associate Software Development Engineer in Testing (ASDET)</h4>
+            <ul style="font-size: 17px;">
+              <li>Proficient in manual testing techniques, including <b>requirement analysis</b>, <b>test planning</b>, <b>test case design</b>, and <b>defect reporting</b>.</li>
+              <li>Gained hands-on experience in designing, developing, and executing test cases using <b>Java</b> and <b>Selenium WebDriver</b> for web-based applications.</li>
+              <li>Designed and executed automated and manual test cases using <b>Selenium</b> with <b>Java</b>, <b>Maven</b>, and <b>TestNG</b>.</li>
+              <li>Collaborated with development teams to understand business and technical requirements, ensuring thorough test coverage across various modules.</li>
+              <li>Collaborated with developers to ensure complete test coverage and participated in <b>Agile</b> ceremonies.</li>
+              <li>Participated in daily stand-up meetings and contributed to <b>Agile</b> development activities.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item card">
+          <div class="exp-meta" style="font-weight:850; font-size:18px; text-align: justify; font-size: 17px;">DataValley<br><span style="font-weight:700; font-size:14px;">Jan 2024 – Apr 2024<br><br>HTML, CSS, JAVASCRIPT, SQL, JAVA</span></div>
+          <div class="exp-body">
+            <h4 style="margin-top: 10px; margin-bottom: 10px;font-weight: 700;">Full Stack Developer</h4>
+            <ul style="font-size: 17px;">
+              <li>During my full-stack developer internship, I gained experience in core web technologies, including <b>HTML</b> and <b>CSS</b> for structuring and styling web pages, and <b>JavaScript</b> for client-side interactivity.</li>
+              <li>I also worked with <b>SQL</b> for database management, gaining insights into data querying and manipulation.</li>
+              <li>In addition to front-end development, I utilized <b>Java</b> for back-end processes, ensuring server-side logic and functionality.</li>
+              <li>Worked on front-end and back-end integration and database queries to ensure smooth data flow and functionality.</li>
+              <li>Built responsive web applications using <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, <b>SQL</b>, and <b>Java</b>.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item card">
+          <div class="exp-meta" style="font-weight:850; font-size:18px; text-align: justify;">Persistent Systems<br><span style="font-weight:700; font-size:14px;">Jun 2023 – Aug 2023<br><br>Python, Linux, Data Structures, DBMS</span></div>
+          <div class="exp-body">
+            <h4>Martin Summer Internship Program</h4>
+            <ul style="font-size: 17px;"> 
+              <li>During my internship, I gained hands-on experience with key technologies such as <b>Python</b>, <b>Linux</b>, <b>Data Structures</b>, and <b>DBMS</b>.</li>
+              <li><b>Python</b> enhanced my programming logic, <b>Linux</b> allowed me to navigate and manage servers efficiently, and my understanding of <b>Data Structures</b> and <b>Database Management Systems</b> strengthened my ability to organize and manipulate data for back-end development tasks.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item card">
+          <div class="exp-meta" style="font-weight:850; font-size:18px; text-align: justify;">Teachnook<br><span style="font-weight:700; font-size:14px;">Aug 2022 – Sep 2022<br><br>HTML, CSS, JAVASCRIPT</span></div>
+          <div class="exp-body">
+            <h4>Web Development and Design</h4>
+            <ul style="font-size: 17px;">
+              <li>During my internship, I gained hands-on experience in web development and design by learning HTML, CSS, and JavaScript.</li>
+              <li>I used HTML for structuring web content, CSS for creating responsive and visually appealing layouts, and JavaScript to add interactivity and dynamic functionality to websites.</li>
+              <li>Built responsive and user-friendly web pages using HTML, CSS, and JavaScript.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="projects">
+      <h3 class="section-title" style="text-align: center; color: #034cac; ">Projects</h3>
+      <div class="projects" style="background: #41422a;">
+        <div class="project card" style="font-size: 17px;">
+          <h4>Detection & Classification of Potholes using CNN</h4>
+          <p class="muted">Python, OpenCV, Deep Learning, YOLOv8, TensorFlow, Image Processing</p><br>
+          <ul>
+            <li>Developed a computer vision-based system to automatically detect and classify road surfaces as either plain or containing potholes using deep learning techniques.</li>
+            <li>Collected and preprocessed road images using <b>OpenCV</b> for noise reduction, contrast enhancement, and image normalization to improve model accuracy.</li>
+            <li>Implemented the <b>YOLOv8</b> (You Only Look Once) algorithm for real-time object detection, achieving high accuracy in identifying pothole regions from captured images.</li>
+            <li>Trained and fine-tuned the convolutional neural network (<b>CNN</b>) on a custom dataset to differentiate between smooth and damaged road surfaces.</li>
+            <li>Integrated a <b>Python-based email automation module</b> to notify concerned authorities automatically when potholes are detected, including image evidence and GPS coordinates.</li>
+            <li>Tested the system under varying lighting and weather conditions to evaluate performance and ensure robust detection accuracy in real-world scenarios.</li>
+            <li>Achieved reliable real-time detection speed and accuracy, demonstrating the potential for deployment in smart city maintenance systems.</li>
+          </ul>
+
+        </div>
+        <div class="project card" style="font-size: 17px;">
+          <h4>Detecting Facial Features using CNN</h4>
+          <p class="muted">Python, OpenCV, Deep Learning, CNN, Image Recognition, TensorFlow, Keras</p><br>
+          <ul>
+            <li>Developed a deep learning-based facial feature detection system capable of recognizing human emotions and gender using <b>Convolutional Neural Networks (CNNs)</b>.</li>
+            <li>Collected and preprocessed facial image datasets by applying <b>OpenCV</b> techniques such as face detection, grayscale conversion, normalization, and resizing to enhance model accuracy.</li>
+            <li>Implemented a multi-layer <b>CNN architecture</b> using <b>TensorFlow</b> and <b>Keras</b> to extract spatial hierarchies of features and classify different facial attributes.</li>
+            <li>Trained the model on a diverse dataset of facial expressions to recognize emotions such as happiness, anger, sadness, surprise, and neutrality with high precision.</li>
+            <li>Integrated an additional classification module to determine the <b>gender</b> of the person based on detected facial features, achieving multi-task learning capability.</li>
+            <li>Evaluated the model’s performance using accuracy, F1-score, and confusion matrix, fine-tuning hyperparameters for optimal detection results.</li>
+            <li>Tested the system on real-time webcam input to demonstrate live <b>emotion and gender detection</b>, making it suitable for smart surveillance and human–computer interaction applications.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    
+
+
+  <section id="education">
+  <h3 class="section-title" style="text-align:center; color: #034cac;">Education</h3>
+
+  <!-- Fixed grid + spacing -->
+  <div class="grid" style="display: flex; flex-direction: column; gap: 20px; text-align: justify; max-width: 700px; margin: 0 auto;">
+    
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">Bachelor of Technology in<br> Computer Science & Engineering</h4>
+      <div class="muted" style="font-size: 17px;">Shri Vishnu Engineering College for Women <br> Dec 2021 – Jun 2024</div>
+    </div>
+
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">Diploma in<br> Computer Engineering</h4>
+      <div class="muted" style="font-size: 17px;">AANMVVRSR Polytechnic College <br> Jun 2018 – Apr 2021</div>
+    </div>
+
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">SSC</h4>
+      <div class="muted" style="font-size: 17px;">St Paul's High School <br>Jun 2017 – Apr 2018</div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <h3 class="section-title" style="text-align:center; color: #034cac;">Certifications</h3>
+
+  <!-- Certifications List -->
+  <div class="grid" style="display: flex; flex-direction: column; gap: 20px; text-align: justify; max-width: 700px; margin: 0 auto;">
+
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">Certified in CCNAv7: Introduction to Networks</h4>
+      <div class="muted" style="font-size: 17px;">by Cisco</div>
+    </div>
+
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">Achieved Elite Certification in “Programming in Java”</h4>
+      <div class="muted" style="font-size: 17px;">by NPTEL (Swayam)</div>
+    </div>
+
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">Certified in Introduction to Cybersecurity</h4>
+      <div class="muted" style="font-size: 17px;">by Cisco</div>
+    </div>
+
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">Certified in Oracle SQL</h4>
+      <div class="muted" style="font-size: 17px;">by Coursera</div>
+    </div>
+
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">Certified in Cloud Security Foundation</h4>
+      <div class="muted" style="font-size: 17px;">by AWS Academy</div>
+    </div>
+
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">Certified in Azure Fundamentals</h4>
+      <div class="muted" style="font-size: 17px;">by Microsoft</div>
+    </div>
+
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">Earned Badges and Certification in Android Basics in Kotlin</h4>
+      <div class="muted" style="font-size: 17px;">by Google Developers</div>
+    </div>
+
+    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
+      <h4 style="font-size: 17px;">Certified in Database Design</h4>
+      <div class="muted" style="font-size: 17px;">by Oracle Academy</div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contact" style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+  <div>
+    <h3 class="section-title" style="text-align:center; color: #034cac;">Contact</h3>
+
+    <div class="card" style="text-align: center; width: 900px; margin: 0 auto; border: 1px solid #ddd; border-radius: 12px; background: #41422a; padding: 20px; color: #f5f5f5;">
+      <p style="margin:0; font-size: 18px; text-align: justify;">
+        I’m open to internship and early-career job opportunities in <b>Software Testing</b>, <b>Full Stack Development</b>, and <b>Cloud Engineering</b>. Feel free to reach out!
+      </p>
+
+      <div style="height:14px"></div>
+      <div class="contact-item" style="font-size: 17px;">📧 <strong style="margin-left:6px">disneypallavi@gmail.com</strong></div>
+      <div style="height:8px"></div>
+      <div class="contact-item" style="font-size: 17px;">📞 <strong style="margin-left:6px">+91 9493666333</strong></div>
+      
+      <br><br>
+      <div style="display:flex; justify-content:center; gap:20px; align-items:center; flex-wrap:wrap;">
+        <a href="https://github.com/Disney35" target="_blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9LaOgwJe7ld_Aji29KFxposX4JKjlNhDEXw&s" 
+               alt="GitHub" width="60" height="65" />
+        </a>
+      
+        <a href="https://www.linkedin.com/in/bezawada-disney-pallavi/" target="_blank" rel="noopener noreferrer">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png" 
+               alt="LinkedIn" width="60" height="65" />
+        </a>
+      
+        <a href="https://leetcode.com/u/Disney_035/" target="_blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeJtxeAdUOh58z60mJBZjDLkU5ucuVeHYHtvKja8_i8gI88cB8ouv5vF4U1eKogcDbBVg&usqp=CAU" 
+               alt="LeetCode" width="60" height="65" />
+        </a>
+      
+        <a href="https://www.codechef.com/users/disney_189" target="_blank">
+          <img src="https://cdn-1.webcatalog.io/catalog/codechef/codechef-icon-filled-256.webp?v=1714773964077" 
+               alt="CodeChef" width="60" height="65" />
+        </a>
+      
+        <a href="https://www.hackerrank.com/profile/pallavidisney19" target="_blank">
+          <img src="https://avatars.githubusercontent.com/u/7596827?v=4" 
+               alt="HackerRank" width="65" height="70" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+    <footer style="text-align: center; color: #3207f1; padding: 20px 0; font-size: 18px;">
+  © 2025 Bezawada Disney Pallavi — Built with ❤️💚❤️
+</footer>
+  </main>
+
+  <script>
+    // Minimal JS interactivity (compiled from TypeScript source available below)
+    (function(){
+      const downloadBtn = document.getElementById('downloadResume');
+      downloadBtn?.addEventListener('click', ()=>{
+        const resumeUrl = 'resume.pdf'; // replace with your resume PDF path
+        window.open(resumeUrl, '_blank');
+      });
+
+      // Simple scrollspy to update active nav link
+      const sections = Array.from(document.querySelectorAll('section'));
+      const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+      function onScroll(){
+        const y = window.scrollY + 120;
+        for(const s of sections){
+          const top = s.getBoundingClientRect().top + window.scrollY;
+          const id = s.getAttribute('id');
+          if(!id) continue;
+          const link = document.querySelector('.nav-links a[href="#'+id+'"]');
+          if(y >= top && y < top + s.offsetHeight){
+            link?.classList.add('active');
+          } else link?.classList.remove('active');
+        }
+      }
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+
+      // Mobile nav toggle
+      const mq = window.matchMedia('(max-width:920px)');
+      function ensureMobileNav(){
+        if(mq.matches){
+          const nav = document.querySelector('.nav-inner');
+          const burger = document.createElement('button');
+          burger.textContent = '☰';
+          burger.style.padding = '8px 10px';
+          burger.style.borderRadius = '10px';
+          burger.style.background = 'transparent';
+          burger.style.color = 'var(--muted)';
+          burger.onclick = ()=>{
+            const links = document.querySelector('.nav-links');
+            if(links) links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+          };
+          nav?.appendChild(burger);
+          const links = document.querySelector('.nav-links');
+          if(links) links.style.display = 'none';
+        }
+      }
+      ensureMobileNav();
+      window.addEventListener('resize', ensureMobileNav);
+    })();
+  </script>
+
+  <!--
+    TypeScript source (main.ts)
+
+    Copy this into main.ts and compile with `tsc main.ts --target ES2019 --module es2020` or use your bundler.
+
+    ------------------- main.ts -------------------
+    const downloadBtn = document.getElementById('downloadResume') as HTMLButtonElement | null;
+    downloadBtn?.addEventListener('click', () => {
+      const resumeUrl = 'resume.pdf';
+      window.open(resumeUrl, '_blank');
+    });
+
+    const sections: HTMLElement[] = Array.from(document.querySelectorAll('section')) as HTMLElement[];
+    const navLinks = Array.from(document.querySelectorAll('.nav-links a')) as HTMLAnchorElement[];
+
+    function onScroll() {
+      const y = window.scrollY + 120;
+      for (const s of sections) {
+        const top = s.getBoundingClientRect().top + window.scrollY;
+        const id = s.getAttribute('id');
+        if (!id) continue;
+        const link = document.querySelector('.nav-links a[href="#' + id + '"]');
+        if (y >= top && y < top + s.offsetHeight) {
+          link?.classList.add('active');
+        } else link?.classList.remove('active');
+      }
+    }
+
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    // Mobile nav toggle
+    const mq = window.matchMedia('(max-width:920px)');
+    function ensureMobileNav() {
+      if (mq.matches) {
+        const nav = document.querySelector('.nav-inner');
+        const burger = document.createElement('button');
+        burger.textContent = '☰';
+        burger.style.padding = '8px 10px';
+        burger.style.borderRadius = '10px';
+        burger.style.background = 'transparent';
+        burger.style.color = 'var(--muted)';
+        burger.onclick = () => {
+          const links = document.querySelector('.nav-links');
+          if (links) links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+        };
+        nav?.appendChild(burger);
+        const links = document.querySelector('.nav-links');
+        if (links) (links as HTMLElement).style.display = 'none';
+      }
+    }
+    ensureMobileNav();
+    window.addEventListener('resize', ensureMobileNav);
+    ----------------- end main.ts -----------------
+  -->
+</body>
+</html>
