@@ -1,722 +1,856 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bezawada Disney Pallavi — Portfolio</title>
-  <meta name="description" content="Bezawada Disney Pallavi — Software Engineer, Test Automation, FullStack Development, Cloud Enthusiast (AWS, GCP)" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bezawada Disney Pallavi — Java Backend Developer, Automation Test Engineer, and Software Developer.">
+  <meta name="theme-color" content="#10152b">
+  <title>Bezawada Disney Pallavi | Portfolio</title>
+
   <style>
-    :root{
-      --bg: linear-gradient(120deg, #77f1cc, #f5bb8e); --surface:#41422a; --muted:#e3eeda; --text:#e2e8f0; --accent:#6babfa; --glass: rgba(148,163,184,0.06);
-      --radius:14px; --card-radius:12px; --max-w:1100px; --container-pad:20px; --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #111a31;
+      --surface: rgba(24, 34, 59, 0.88);
+      --surface-2: #1a2744;
+      --text: #edf2ff;
+      --muted: #b8c4dc;
+      --accent: #75c7ff;
+      --accent-2: #b48cff;
+      --gold: #ffd66b;
+      --border: rgba(173, 196, 235, 0.16);
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+      --radius: 18px;
+      --max-width: 1120px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%; margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased}
-    a{color:var(--accent); text-decoration:none}
-    .wrap{max-width:var(--max-w); margin:0 auto; padding:var(--container-pad)}
 
-    /* NAV */
-    nav{position:fixed; left:0; right:0; top:0; height:64px; backdrop-filter:blur(6px); background:linear-gradient(180deg, rgba(15,23,42,0.85), rgba(15,23,42,0.6)); border-bottom:1px solid rgba(148,163,184,0.06); z-index:40}
-    .nav-inner{max-width:var(--max-w); margin:0 auto; padding:0 20px; height:100%; display:flex; align-items:center; justify-content:space-between}
-    .brand{display:flex; gap:12px; align-items:center}
-    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#6d42f0);display:flex;align-items:center;justify-content:center;font-weight:700}
-    .brand h1{font-size:16px;margin:0}
-    .nav-links{display:flex; gap:18px; align-items:center}
-    .nav-links a{padding:8px 12px;border-radius:10px;color:var(--muted);font-size:14px}
-    .nav-links a:hover{background:rgba(96,165,250,0.07);color:var(--text)}
-    .cta{padding:10px 16px;background:linear-gradient(90deg,var(--accent),#1a0360); color:#021124;border-radius:12px;font-weight:600}
-    /* hero */
-
-    .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 84px;
-}
-
-/* Remove the grid layout — make everything centered */
-.hero-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.intro h2 {
-  font-size: 20px;
-  color: var(--accent);
-  margin: 0 0 8px;
-}
-
-.intro h1 {
-  font-size: 40px;
-  margin: 0 0 12px;
-  line-height: 1.2;
-}
-
-.intro p {
-  color: var(--muted);
-  margin: 0 auto 18px;
-  max-width: 900px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.btn {
-  padding: 12px 18px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.btn-primary {
-  background: linear-gradient(90deg, var(--accent), #7f64e2);
-  color: #021124;
-}
-
-.btn-ghost {
-  background: transparent;
-  border: 1px solid rgba(148,163,184,0.08);
-  color: var(--text);
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-}
-
-.tag {
-  background: rgba(148,163,184,0.1);
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 14px;
-  color: var(--text);
-}
-
-    /* card */
-    .card{background:var(--surface); padding:20px;border-radius:var(--card-radius);box-shadow:0 6px 20px rgba(2,6,23,0.6); border:1px solid rgba(148,163,184,0.04)}
-    .profile-pic{width:100%; height:320px; border-radius:12px; background:linear-gradient(135deg,#3b82f6,#7c7e41); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px}
-
-    /* sections */
-    section{padding:50px 0}
-    .section-title{font-size:26px; margin:0 0 18px}
-    .muted{color:var(--muted)}
-
-    /* Experience */
-    .exp-list{display:grid; gap:18px}
-    .exp-item{display:flex; gap:18px; align-items:flex-start}
-    .exp-meta{min-width:180px;color:var(--muted); font-size:14px}
-    .exp-body h4{margin:0 0 6px}
-    .exp-body ul{margin:8px 0 0 18px;color:var(--muted)}
-
-    /* Skills grid */
-    .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px}
-    .tags{display:flex; gap:8px; flex-wrap:wrap}
-    .tag{background:rgba(96,165,250,0.08); padding:8px 12px;border-radius:999px; color:var(--text); font-size:13px}
-
-    /* Projects */
-    .projects{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px}
-    .project{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(76, 60, 45, 0.02), rgba(255,255,255,0.01)); border:1px solid rgba(105, 91, 50, 0.04)}
-    .project h3{margin:0 0 8px}
-    .project p{color:var(--muted); margin:0}
-
-    /* contact */
-    .contact-grid{display:grid; grid-template-columns:1fr 320px; gap:20px}
-    .contact-item{padding:14px;border-radius:12px;background:var(--glass); border:1px solid rgba(148,163,184,0.04); display:flex; gap:12px; align-items:center}
-
-    footer{padding:28px 0; text-align:center; color:var(--muted); border-top:1px solid rgba(148,163,184,0.03)}
-
-    /* responsiveness */
-    @media (max-width:920px){
-      .hero-grid{grid-template-columns:1fr}
-      .contact-grid{grid-template-columns:1fr}
-      .nav-links{display:none}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(117, 199, 255, .14), transparent 28rem),
+        radial-gradient(circle at 90% 35%, rgba(180, 140, 255, .13), transparent 30rem),
+        linear-gradient(135deg, #0b1020, #131b32 55%, #101629);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
-    .intro-header {
-  text-align: center;
-}
 
-.intro-header h1,
-.intro-header h2 {
-  text-align: center;
-  margin: 0 auto;
-}
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #b8e5ff; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max-width), calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 76px 0 24px; }
+    .section-heading { text-align: center; margin: 0 0 34px; }
+    .eyebrow {
+      display: inline-block; color: var(--accent); text-transform: uppercase;
+      letter-spacing: .16em; font-size: .76rem; font-weight: 800; margin-bottom: 8px;
+    }
+    .section-heading h2 { margin: 0; font-size: clamp(1.8rem, 4vw, 2.45rem); color: var(--gold); }
+    .section-heading p { color: var(--muted); margin: 8px auto 0; max-width: 680px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      backdrop-filter: blur(12px);
+    }
+    .muted { color: var(--muted); }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 9px; }
+    .tag {
+      display: inline-flex; align-items: center; padding: 6px 12px;
+      border-radius: 999px; background: rgba(117, 199, 255, .10);
+      border: 1px solid rgba(117, 199, 255, .22); color: #e3f4ff;
+      font-size: .88rem; font-weight: 600;
+    }
 
+    /* Navigation */
+    .site-header {
+      position: fixed; inset: 0 0 auto; z-index: 100;
+      background: rgba(9, 14, 29, .88); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-wrap {
+      min-height: 72px; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand img {
+      width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--accent-2); background: var(--surface-2);
+    }
+    .brand-name { margin: 0; color: var(--gold); font-size: .98rem; line-height: 1.25; }
+    .brand-role { color: var(--muted); font-size: .72rem; line-height: 1.35; margin-top: 4px; }
+    .nav-links { display: flex; align-items: center; gap: 5px; }
+    .nav-links a {
+      color: var(--muted); font-size: .87rem; font-weight: 650;
+      padding: 9px 11px; border-radius: 10px; transition: .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(117, 199, 255, .12); }
+    .nav-links .nav-cta { color: #081326; background: linear-gradient(100deg, var(--accent), var(--accent-2)); }
+    .menu-toggle {
+      display: none; color: var(--text); border: 1px solid var(--border);
+      background: var(--surface-2); border-radius: 10px; padding: 8px 12px;
+      font-size: 1.2rem; cursor: pointer;
+    }
 
+    /* Hero */
+    main { padding-top: 72px; }
+    .hero { min-height: calc(100vh - 72px); display: grid; place-items: center; padding: 75px 0 55px; }
+    .hero-content { max-width: 900px; text-align: center; }
+    .hero-kicker { color: var(--accent); font-size: 1.08rem; font-weight: 750; margin: 0 0 8px; }
+    .hero h1 {
+      font-size: clamp(2.25rem, 6vw, 4.2rem); line-height: 1.12;
+      margin: 0; color: var(--gold); letter-spacing: -.04em;
+    }
+    .hero-subtitle { color: #d9e6ff; font-size: clamp(1rem, 2.2vw, 1.28rem); margin: 18px 0 14px; }
+    .hero-summary { max-width: 800px; margin: 0 auto; color: var(--muted); font-size: 1.02rem; }
+    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 13px; margin: 28px 0 24px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border: 1px solid transparent; border-radius: 12px; padding: 12px 19px;
+      font-weight: 800; cursor: pointer; transition: transform .2s, box-shadow .2s;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,.22); }
+    .button-primary { color: #081326; background: linear-gradient(100deg, var(--accent), var(--accent-2)); }
+    .button-secondary { color: var(--text); border-color: var(--border); background: rgba(255,255,255,.04); }
+    .hero-tags { justify-content: center; }
+
+    /* Layouts */
+    .two-column { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .three-column { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .skill-card h3, .project-card h3, .experience-card h3, .education-card h3 {
+      color: var(--gold); margin: 0 0 12px; font-size: 1.12rem;
+    }
+    .skill-card { padding: 21px; }
+    .experience-list { display: grid; gap: 20px; }
+    .experience-card { display: grid; grid-template-columns: 215px 1fr; gap: 24px; }
+    .experience-meta { border-right: 1px solid var(--border); padding-right: 18px; }
+    .experience-meta strong { display: block; color: var(--accent); font-size: 1.05rem; }
+    .experience-meta span { display: block; color: var(--muted); font-size: .9rem; }
+    .experience-card h3 { color: var(--text); margin-bottom: 4px; }
+    .role-title { color: var(--accent); font-weight: 700; margin-bottom: 10px; }
+    ul.content-list { margin: 10px 0 0; padding-left: 21px; color: var(--muted); }
+    ul.content-list li { margin: 7px 0; padding-left: 3px; }
+    .project-card { display: flex; flex-direction: column; height: 100%; }
+    .project-card .tag-list { margin: 0 0 12px; }
+    .project-card p { color: var(--muted); margin: 0; }
+    .project-card ul { padding-left: 20px; color: var(--muted); }
+    .project-card li { margin: 7px 0; }
+    .education-card h3 { margin-bottom: 5px; }
+    .education-card p { color: var(--muted); margin: 4px 0; }
+    .cert-list { display: grid; gap: 13px; }
+    .cert-item { display: flex; gap: 12px; align-items: flex-start; }
+    .cert-icon { color: var(--accent); font-size: 1.15rem; }
+    .leadership-card h3 { color: var(--gold); margin: 0 0 4px; }
+    .leadership-card .date { color: var(--accent); font-size: .9rem; font-weight: 700; }
+
+    /* Contact and footer */
+    .contact-card { max-width: 850px; margin: 0 auto; text-align: center; }
+    .contact-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 24px 0; }
+    .contact-detail {
+      border: 1px solid var(--border); background: rgba(255,255,255,.035);
+      border-radius: 12px; padding: 13px; color: var(--muted); overflow-wrap: anywhere;
+    }
+    .social-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .social-links a {
+      padding: 9px 15px; border-radius: 10px; border: 1px solid var(--border);
+      background: rgba(255,255,255,.04); font-weight: 700;
+    }
+    #currentTime { color: var(--muted); font-size: .85rem; margin-top: 12px; }
+    footer { margin-top: 75px; border-top: 1px solid var(--border); padding: 25px 0; text-align: center; color: var(--muted); }
+    footer strong { color: var(--gold); }
+
+    @media (max-width: 980px) {
+      .nav-links { gap: 1px; }
+      .nav-links a { padding: 8px; font-size: .8rem; }
+      .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .three-column { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 30px, var(--max-width)); }
+      .menu-toggle { display: inline-flex; }
+      .nav-wrap { min-height: 68px; }
+      .brand img { width: 42px; height: 42px; }
+      .brand-role { max-width: 225px; }
+      .nav-links {
+        display: none; position: absolute; top: 68px; left: 15px; right: 15px;
+        padding: 12px; background: #111a31; border: 1px solid var(--border);
+        border-radius: 14px; box-shadow: var(--shadow);
+        flex-direction: column; align-items: stretch;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: .95rem; padding: 11px 13px; }
+      .hero { min-height: auto; padding: 85px 0 50px; }
+      .section { padding-top: 60px; }
+      .two-column, .three-column, .skills-grid { grid-template-columns: 1fr; }
+      .experience-card { grid-template-columns: 1fr; gap: 12px; }
+      .experience-meta { border-right: 0; border-bottom: 1px solid var(--border); padding: 0 0 12px; }
+      .contact-details { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
   </style>
 </head>
+
 <body>
-  <nav>
-    <div class="nav-inner">
-      <div class="brand">
-          <div class="logo">
-            <img src="image.jpg"alt="Logo" style="width:60px; height:55px; border-radius:70%; object-fit:cover; border:2px solid #cc0099;" />
-          </div>
-        <div> 
-          <h1 style="font-size:14px;margin:0; color:#f3c706">Bezawada Disney Pallavi</h1>
-          <div style="font-size:12px;color:var(--muted)">Software Engineer | Test Automation | FullStack Development | Cloud Enthusiast (AWS, GCP)</div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Go to home">
+        <img src="image.jpg" alt="Bezawada Disney Pallavi profile photo"
+             onerror="this.style.display='none'">
+        <div>
+          <h2 class="brand-name">Bezawada Disney Pallavi</h2>
+          <div class="brand-role">Java Backend Developer | Automation Test Engineer</div>
         </div>
-      </div>
-      <div class="nav-links">
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"
+              aria-expanded="false" aria-controls="navLinks">☰</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a class="cta" href="#contact">Get in touch</a>
-      </div>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#leadership">Leadership</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <main class="wrap" style="padding-top:28px">
-  <section class="hero wrap" id="home" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
-  
-  <div class="hero-grid" style="width: 100%; text-align: center;">
-    <div class="intro" style="max-width: 1000px; margin: 0 auto;">
-      
-      <!-- Centered Headings -->
-      <div style="margin-bottom: 25px;">
-        <h2 class="section-title" style="margin: 0; color: #2a0457; font-size: 28px">Hi, I’m</h2>
-        <h1 class="section-title" style="margin: 0; color: #342101;">Bezawada Disney Pallavi</h1>
-      </div>
-      <br>
-      
-      <!-- Justified Paragraph -->
-      <p class="muted"
-        style="display: block; margin:0;  font-size: 17px; font-weight: bold; text-align: justify; color:rgb(105, 9, 62)">
-        A passionate Computer Science graduate with hands-on experience in Software Testing, Full Stack Development, and Cloud Technologies. <br><br>
-        During my training at Qualizeal, I worked as an Associate Software Development Engineer in Testing (ASDET), gaining practical experience in Manual and Automation Testing using Selenium with Java, Maven, TestNG, and Eclipse. I developed and executed test cases, collaborated with developers, and ensured high-quality software delivery following Agile practices. <br><br>
-        Earlier, at DataValley, I worked as a Full Stack Developer Intern, where I built responsive web applications using HTML, CSS, JavaScript, SQL, and Java, combining both front-end design and back-end functionality. <br><br>
-        I have also explored Python, Linux, Data Structures, and DBMS, along with cloud platforms such as AWS and Google Cloud Platform (GCP). <br><br>
-        My Machine Learning and Deep Learning projects, especially those involving Image Recognition using Convolutional Neural Networks (CNNs), have strengthened my analytical and problem-solving abilities. <br><br>
-        I’m deeply interested in creating efficient, reliable, and scalable software systems — from development to testing and deployment. I enjoy working in collaborative environments, learning new technologies, and continuously improving the quality of the products I help build.
-      </p>
+  <main>
+    <!-- HOME -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <p class="hero-kicker">Hello, welcome to my portfolio</p>
+        <h1>Bezawada Disney Pallavi</h1>
+        <p class="hero-subtitle">Java Backend Developer | Automation Test Engineer | Software Developer</p>
+        <p class="hero-summary">
+          I am an Automation Test Engineer and Java Backend Developer. I build reliable
+          backend services and quality-focused software solutions using Java, Spring Boot,
+          REST APIs, Microservices, Selenium WebDriver, TestNG, Postman, SQL databases,
+          and AWS cloud services. I am familiar with SDLC, STLC, and Agile Scrum practices.
+        </p>
 
-      <!-- Buttons -->
-      <div class="hero-actions" style="margin-top: 30px;">
-        <a href="https://drive.google.com/file/d/1fmmnth6m9hVXYeJHzd0797UYH2wZ8-JC/view?usp=sharing" target="_blank">
-          <button class="btn btn-primary" style=" font-size: 20px;">Download Resume</button>
-        </a> 
-        <a class="btn btn-ghost" href="#projects" style="color: #460404; font-size: 18px;">View Projects</a>
-      </div>
-      
-      
-
-      <!-- Tags -->
-      <div class="tags" style="margin-top: 25px;">
-        <span class="tag" style="color: #460404;font-size: 20px;"><b>Python</b></span>
-        <span class="tag" style="color: #460404;font-size: 20px;"><b>Java</b></span>
-        <span class="tag" style="color: #460404;font-size: 20px;"><b>AWS</b></span>
-        <span class="tag" style="color: #460404;font-size: 20px;"><b>Front-End Development</b></span>
-        <span class="tag" style="color: #460404;font-size: 20px;"><b>Software Testing</b></span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <h3 class="section-title" style="text-align:center; color: #034cac;">About</h3>
-
-  <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-    <p class="muted" style="margin:0; text-align: justify; font-size: 17px; line-height: 1.8; color: #f5f5f5;">
-      I am a <b>Computer Science graduate</b> with hands-on experience in <b>Software Testing</b>, <b>Full Stack Development</b>, and <b>Cloud Platforms</b>. I have worked on <b>Manual and Automation Testing</b> using <b>Selenium with Java</b>, utilizing tools such as <b>TestNG</b>, <b>Maven</b>, and <b>Eclipse</b> to execute and manage test automation frameworks. I have also built <b>responsive web applications</b> using <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, <b>Java</b>, and <b>Python</b>. Additionally, I have developed projects in <b>Machine Learning</b>, <b>Deep Learning</b>, and <b>Computer Vision</b>, focusing on <b>Image Recognition</b> using <b>Convolutional Neural Networks (CNNs)</b>.
-    </p>
-  </div>
-</section>
-
-
-
-<section id="skills">
-  <h3 class="section-title" style="text-align: center; color: #034cac;">Technical Skills</h3>
-      <div class="grid">
-        <!-- Front-End -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Front-End</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">HTML</span>
-            <span class="tag" style="font-size: 17px;">CSS</span>
-            <span class="tag" style="font-size: 17px;">JavaScript</span>
-            <span class="tag" style="font-size: 17px;">TypeScript</span>
-            <span class="tag" style="font-size: 17px;">React.js</span>
-            <span class="tag" style="font-size: 17px;">Angular</span>
-            <span class="tag" style="font-size: 17px;">Bootstrap</span>
-            <span class="tag" style="font-size: 17px;">XML</span>
-          </div>
-        </div>
-    
-        <!-- Back-End -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Back-End</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">C</span>
-            <span class="tag" style="font-size: 17px;">R</span>
-            <span class="tag" style="font-size: 17px;">Java</span>
-            <span class="tag" style="font-size: 17px;">Python</span>
-            <span class="tag" style="font-size: 17px;">PHP</span>
-            <span class="tag" style="font-size: 17px;">Kotlin</span>
-            <span class="tag" style="font-size: 17px;">Node.js</span>
-            <span class="tag" style="font-size: 17px;">Spring Boot</span>
-          </div>
-        </div>
-    
-        <!-- Frameworks & Libraries -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Frameworks & Libraries</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">Scikit-learn</span>
-            <span class="tag" style="font-size: 17px;">TensorFlow</span>
-            <span class="tag" style="font-size: 17px;">Keras</span>
-            <span class="tag" style="font-size: 17px;">PyTorch</span>
-            <span class="tag" style="font-size: 17px;">OpenCV</span>
-            <span class="tag" style="font-size: 17px;">Pandas</span>
-            <span class="tag" style="font-size: 17px;">NumPy</span>
-            <span class="tag" style="font-size: 17px;">Matplotlib</span>
-            <span class="tag" style="font-size: 17px;">YOLO</span>
-          </div>
-        </div>
-    
-        <!-- Testing Skills -->
-        <div class="card" style="width:320px; height:370px;">
-          <h4 style="font-size: 17px;">Testing Skills</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">Manual Testing</span>
-            <span class="tag" style="font-size: 17px;">API Testing</span>
-            <span class="tag" style="font-size: 17px;">QA Practices</span>
-            <span class="tag" style="font-size: 17px;">Debugging</span>
-            <span class="tag" style="font-size: 17px;">Automation Testing</span>
-            <span class="tag" style="font-size: 17px;">Software Testing</span>
-            <span class="tag" style="font-size: 17px;">Performance Testing</span>
-            <span class="tag" style="font-size: 17px;">Bug Tracking</span>
-          </div>
-        </div>
-    
-        <!-- Testing Tools -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Testing Tools</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">Selenium</span>
-            <span class="tag" style="font-size: 17px;">TestNG</span>
-            <span class="tag" style="font-size: 17px;">Maven</span>
-          </div>
+        <div class="hero-actions">
+          <a class="button button-primary"
+             href="https://drive.google.com/file/d/1fmmnth6m9hVXYeJHzd0797UYH2wZ8-JC/view"
+             target="_blank" rel="noopener noreferrer">Download Resume ↗</a>
+          <a class="button button-secondary" href="#projects">Explore Projects</a>
+          <a class="button button-secondary" href="#contact">Get in Touch</a>
         </div>
 
-        <!-- Development Tools / IDEs -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Development Tools & IDEs</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">Git</span>
-            <span class="tag" style="font-size: 17px;">GitHub</span>
-            <span class="tag" style="font-size: 17px;">VS Code</span>
-            <span class="tag" style="font-size: 17px;">Eclipse IDE</span>
-            <span class="tag" style="font-size: 17px;">Android Studio</span>
-          </div>
-        </div>
-    
-        <!-- Data Analysis & Reporting -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Data Analysis & Reporting</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">MS Office</span>
-            <span class="tag" style="font-size: 17px;">Tableau</span>
-          </div>
-        </div>
-    
-        <!-- Cloud & Database -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Cloud & Database</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">AWS</span>
-            <span class="tag" style="font-size: 17px;">GCP</span>
-            <span class="tag" style="font-size: 17px;">SQL</span>
-            <span class="tag" style="font-size: 17px;">DBMS</span>
-            <span class="tag" style="font-size: 17px;">MongoDB</span>
-          </div>
-        </div>
-    
-        <!-- Data Structures & Algorithms -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Data Structures & Algorithms</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">Array</span>
-            <span class="tag" style="font-size: 17px;">Linked List</span>
-            <span class="tag" style="font-size: 17px;">Stack</span>
-            <span class="tag" style="font-size: 17px;">Queue</span>
-            <span class="tag" style="font-size: 17px;">Tree</span>
-            <span class="tag" style="font-size: 17px;">Graph</span>
-            <span class="tag" style="font-size: 17px;">Hashing</span>
-            <span class="tag" style="font-size: 17px;">Sorting</span>
-            <span class="tag" style="font-size: 17px;">Searching</span>
-          </div>
-        </div>
-    
-        <!-- Project Management & Collaboration -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Project Management & Collaboration</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">Agile Scrum</span>
-            <span class="tag" style="font-size: 17px;">SDLC</span>
-            <span class="tag" style="font-size: 17px;">STLC</span>
-            <span class="tag" style="font-size: 17px;">Sprint Planning</span>
-            <span class="tag" style="font-size: 17px;">Stand-Up Meetings</span>
-            <span class="tag" style="font-size: 17px;">Team Collaboration</span>
-          </div>
-        </div>
-    
-        <!-- Operating Systems & Networking -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Operating Systems & Networking</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">Windows</span>
-            <span class="tag" style="font-size: 17px;">Linux</span>
-            <span class="tag" style="font-size: 17px;">Computer Networking</span>
-          </div>
-        </div>
-    
-        <!-- Other Skills -->
-        <div class="card">
-          <h4 style="font-size: 17px;">Other Skills</h4>
-          <div class="tags">
-            <span class="tag" style="font-size: 17px;">Machine Learning</span>
-            <span class="tag" style="font-size: 17px;">Deep Learning</span>
-          </div>
+        <div class="tag-list hero-tags">
+          <span class="tag">Java</span>
+          <span class="tag">Spring Boot</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Selenium</span>
+          <span class="tag">TestNG</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">AWS</span>
         </div>
       </div>
     </section>
 
-    <section id="experience">
-      <h3 class="section-title" style="text-align:center; color: #034cac; ">Experience</h3>
-      <div class="exp-list">
-        <div class="exp-item card">
-          <div class="exp-meta" style="font-weight:850; font-size:18px; text-align: justify; font-size: 17px;">Qualizeal<br><span style="font-weight:600; font-size:14px;">Jul 2024 – Dec 2024<br><br>Software Testing, <br>Selenium with JAVA,<br>Maven, TestNG,<br> Manual Testing</span></div>
-          <div class="exp-body">
-            <h4>Associate Software Development Engineer in Testing (ASDET)</h4>
-            <ul style="font-size: 17px;">
-              <li>Proficient in manual testing techniques, including <b>requirement analysis</b>, <b>test planning</b>, <b>test case design</b>, and <b>defect reporting</b>.</li>
-              <li>Gained hands-on experience in designing, developing, and executing test cases using <b>Java</b> and <b>Selenium WebDriver</b> for web-based applications.</li>
-              <li>Designed and executed automated and manual test cases using <b>Selenium</b> with <b>Java</b>, <b>Maven</b>, and <b>TestNG</b>.</li>
-              <li>Collaborated with development teams to understand business and technical requirements, ensuring thorough test coverage across various modules.</li>
-              <li>Collaborated with developers to ensure complete test coverage and participated in <b>Agile</b> ceremonies.</li>
-              <li>Participated in daily stand-up meetings and contributed to <b>Agile</b> development activities.</li>
-            </ul>
-          </div>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">A little about me</span>
+          <h2>About Me</h2>
+          <p>Backend Development, Test Automation, and Continuous learning.</p>
         </div>
-
-        <div class="exp-item card">
-          <div class="exp-meta" style="font-weight:850; font-size:18px; text-align: justify; font-size: 17px;">DataValley<br><span style="font-weight:700; font-size:14px;">Jan 2024 – Apr 2024<br><br>HTML, CSS, JAVASCRIPT, SQL, JAVA</span></div>
-          <div class="exp-body">
-            <h4 style="margin-top: 10px; margin-bottom: 10px;font-weight: 700;">Full Stack Developer</h4>
-            <ul style="font-size: 17px;">
-              <li>During my full-stack developer internship, I gained experience in core web technologies, including <b>HTML</b> and <b>CSS</b> for structuring and styling web pages, and <b>JavaScript</b> for client-side interactivity.</li>
-              <li>I also worked with <b>SQL</b> for database management, gaining insights into data querying and manipulation.</li>
-              <li>In addition to front-end development, I utilized <b>Java</b> for back-end processes, ensuring server-side logic and functionality.</li>
-              <li>Worked on front-end and back-end integration and database queries to ensure smooth data flow and functionality.</li>
-              <li>Built responsive web applications using <b>HTML</b>, <b>CSS</b>, <b>JavaScript</b>, <b>SQL</b>, and <b>Java</b>.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="exp-item card">
-          <div class="exp-meta" style="font-weight:850; font-size:18px; text-align: justify;">Persistent Systems<br><span style="font-weight:700; font-size:14px;">Jun 2023 – Aug 2023<br><br>Python, Linux, Data Structures, DBMS</span></div>
-          <div class="exp-body">
-            <h4>Martin Summer Internship Program</h4>
-            <ul style="font-size: 17px;"> 
-              <li>During my internship, I gained hands-on experience with key technologies such as <b>Python</b>, <b>Linux</b>, <b>Data Structures</b>, and <b>DBMS</b>.</li>
-              <li><b>Python</b> enhanced my programming logic, <b>Linux</b> allowed me to navigate and manage servers efficiently, and my understanding of <b>Data Structures</b> and <b>Database Management Systems</b> strengthened my ability to organize and manipulate data for back-end development tasks.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="exp-item card">
-          <div class="exp-meta" style="font-weight:850; font-size:18px; text-align: justify;">Teachnook<br><span style="font-weight:700; font-size:14px;">Aug 2022 – Sep 2022<br><br>HTML, CSS, JAVASCRIPT</span></div>
-          <div class="exp-body">
-            <h4>Web Development and Design</h4>
-            <ul style="font-size: 17px;">
-              <li>During my internship, I gained hands-on experience in web development and design by learning HTML, CSS, and JavaScript.</li>
-              <li>I used HTML for structuring web content, CSS for creating responsive and visually appealing layouts, and JavaScript to add interactivity and dynamic functionality to websites.</li>
-              <li>Built responsive and user-friendly web pages using HTML, CSS, and JavaScript.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="projects">
-      <h3 class="section-title" style="text-align: center; color: #034cac; ">Projects</h3>
-      <div class="projects" style="background: #41422a;">
-        <div class="project card" style="font-size: 17px;">
-          <h4>Detection & Classification of Potholes using CNN</h4>
-          <p class="muted">Python, OpenCV, Deep Learning, YOLOv8, TensorFlow, Image Processing</p><br>
-          <ul>
-            <li>Developed a computer vision-based system to automatically detect and classify road surfaces as either plain or containing potholes using deep learning techniques.</li>
-            <li>Collected and preprocessed road images using <b>OpenCV</b> for noise reduction, contrast enhancement, and image normalization to improve model accuracy.</li>
-            <li>Implemented the <b>YOLOv8</b> (You Only Look Once) algorithm for real-time object detection, achieving high accuracy in identifying pothole regions from captured images.</li>
-            <li>Trained and fine-tuned the convolutional neural network (<b>CNN</b>) on a custom dataset to differentiate between smooth and damaged road surfaces.</li>
-            <li>Integrated a <b>Python-based email automation module</b> to notify concerned authorities automatically when potholes are detected, including image evidence and GPS coordinates.</li>
-            <li>Tested the system under varying lighting and weather conditions to evaluate performance and ensure robust detection accuracy in real-world scenarios.</li>
-            <li>Achieved reliable real-time detection speed and accuracy, demonstrating the potential for deployment in smart city maintenance systems.</li>
-          </ul>
-
-        </div>
-        <div class="project card" style="font-size: 17px;">
-          <h4>Detecting Facial Features using CNN</h4>
-          <p class="muted">Python, OpenCV, Deep Learning, CNN, Image Recognition, TensorFlow, Keras</p><br>
-          <ul>
-            <li>Developed a deep learning-based facial feature detection system capable of recognizing human emotions and gender using <b>Convolutional Neural Networks (CNNs)</b>.</li>
-            <li>Collected and preprocessed facial image datasets by applying <b>OpenCV</b> techniques such as face detection, grayscale conversion, normalization, and resizing to enhance model accuracy.</li>
-            <li>Implemented a multi-layer <b>CNN architecture</b> using <b>TensorFlow</b> and <b>Keras</b> to extract spatial hierarchies of features and classify different facial attributes.</li>
-            <li>Trained the model on a diverse dataset of facial expressions to recognize emotions such as happiness, anger, sadness, surprise, and neutrality with high precision.</li>
-            <li>Integrated an additional classification module to determine the <b>gender</b> of the person based on detected facial features, achieving multi-task learning capability.</li>
-            <li>Evaluated the model’s performance using accuracy, F1-score, and confusion matrix, fine-tuning hyperparameters for optimal detection results.</li>
-            <li>Tested the system on real-time webcam input to demonstrate live <b>emotion and gender detection</b>, making it suitable for smart surveillance and human–computer interaction applications.</li>
-          </ul>
+        <div class="card">
+          <p class="muted">
+            I am an Automation Test Engineer and Java Backend Developer with hands-on
+            experience in Java, Selenium WebDriver, TestNG, REST API testing, Spring Boot,
+            and Microservices. I have worked on building automation frameworks, executing
+            manual and automated tests, validating REST APIs, and developing backend
+            services for payment workflows.
+          </p>
+          <p class="muted">
+            During my Java Backend Developer Trainee experience at HulkHire, I worked on
+            Stripe and PayPal payment integration systems using Java, Spring Boot, REST APIs,
+            MySQL, Redis, Kafka, and AWS. My work included payment order and capture workflows,
+            webhook/status handling, request validation, transaction persistence, authentication,
+            and backend reliability.
+          </p>
+          <p class="muted">
+            Previously, at Qualizeal, I worked as an Associate Software Development Engineer
+            in Testing (ASDET), where I automated 100+ test scripts using Selenium WebDriver,
+            Java, TestNG, and Maven. I also performed manual and API testing and reported
+            30+ defects. <br><br>
+        Earlier, at DataValley, I worked as a Full Stack Developer Intern, where I built
+        responsive web applications using HTML, CSS, JavaScript, SQL, and Java, combining
+        front-end design with back-end functionality. I also gained additional internship
+        and learning experience in Full Stack Development, Python, Linux, DBMS, and Web
+        Development through Persistent Systems and Teachnook.
+          </p>
+          <p class="muted">
+            My additional learning and project interests include Python, Linux, Data Structures,
+            DBMS, Machine Learning, Deep Learning, Computer Vision, and image recognition using
+            Convolutional Neural Networks. I have also explored cloud platforms such as AWS and GCP.
+          </p>
+          <p class="muted">
+            I enjoy solving problems, collaborating with teams, learning new technologies,
+            and creating secure, scalable, and reliable software applications.
+          </p>
         </div>
       </div>
     </section>
 
-    
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">What I work with</span>
+          <h2>Technical Skills</h2>
+        </div>
 
+        <div class="skills-grid">
+          <article class="card skill-card">
+            <h3>Programming Languages</h3>
+            <div class="tag-list">
+              <span class="tag">Java</span><span class="tag">Python</span>
+              <span class="tag">C</span><span class="tag">PHP</span><span class="tag">Kotlin</span>
+              <span class="tag">R</span><span class="tag">TypeScript</span>
+            </div>
+          </article>
 
-  <section id="education">
-  <h3 class="section-title" style="text-align:center; color: #034cac;">Education</h3>
+          <article class="card skill-card">
+            <h3>Frontend Technologies</h3>
+            <div class="tag-list">
+              <span class="tag">HTML</span><span class="tag">CSS</span>
+              <span class="tag">JavaScript</span><span class="tag">Bootstrap</span>
+              <span class="tag">React.js</span><span class="tag">Angular</span>
+              <span class="tag">XML</span>
+            </div>
+          </article>
 
-  <!-- Fixed grid + spacing -->
-  <div class="grid" style="display: flex; flex-direction: column; gap: 20px; text-align: justify; max-width: 700px; margin: 0 auto;">
-    
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">Bachelor of Technology in<br> Computer Science & Engineering</h4>
-      <div class="muted" style="font-size: 17px;">Shri Vishnu Engineering College for Women <br> Dec 2021 – Jun 2024</div>
-    </div>
+          <article class="card skill-card">
+            <h3>Backend Technologies</h3>
+            <div class="tag-list">
+              <span class="tag">Spring</span><span class="tag">Spring Boot</span>
+              <span class="tag">Spring JDBC</span><span class="tag">REST APIs</span>
+              <span class="tag">Microservices</span><span class="tag">Node.js</span>
+              <span class="tag">Tomcat</span>
+            </div>
+          </article>
 
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">Diploma in<br> Computer Engineering</h4>
-      <div class="muted" style="font-size: 17px;">AANMVVRSR Polytechnic College <br> Jun 2018 – Apr 2021</div>
-    </div>
+          <article class="card skill-card">
+            <h3>Automation & Testing</h3>
+            <div class="tag-list">
+              <span class="tag">Manual Testing</span><span class="tag">Selenium WebDriver</span>
+              <span class="tag">TestNG</span><span class="tag">PyTest</span>
+              <span class="tag">JUnit</span><span class="tag">Mockito</span>
+              <span class="tag">REST Assured</span><span class="tag">Postman</span>
+              <span class="tag">Regression Testing</span><span class="tag">Functional Testing</span>
+              <span class="tag">API Testing</span><span class="tag">Integration Testing</span>
+              <span class="tag">Performance Testing</span><span class="tag">Bug Tracking</span>
+              <span class="tag">Test Case Design</span><span class="tag">Debugging</span>
+            </div>
+          </article>
 
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">SSC</h4>
-      <div class="muted" style="font-size: 17px;">St Paul's High School <br>Jun 2017 – Apr 2018</div>
-    </div>
-  </div>
-</section>
+          <article class="card skill-card">
+            <h3>Database, Cache & Messaging</h3>
+            <div class="tag-list">
+              <span class="tag">MySQL</span><span class="tag">AWS RDS</span>
+              <span class="tag">Redis</span><span class="tag">Apache Kafka</span>
+              <span class="tag">MongoDB</span><span class="tag">SQL</span>
+            </div>
+          </article>
 
-<section id="certifications">
-  <h3 class="section-title" style="text-align:center; color: #034cac;">Certifications</h3>
+          <article class="card skill-card">
+            <h3>Cloud & DevOps</h3>
+            <div class="tag-list">
+              <span class="tag">AWS</span><span class="tag">AWS EC2</span>
+              <span class="tag">AWS Secrets Manager</span><span class="tag">Docker</span>
+              <span class="tag">Maven</span><span class="tag">Jenkins</span>
+              <span class="tag">GCP</span><span class="tag">SQL</span>
+              <span class="tag">DBMS</span><span class="tag">MongoDB</span>
+            </div>
+          </article>
 
-  <!-- Certifications List -->
-  <div class="grid" style="display: flex; flex-direction: column; gap: 20px; text-align: justify; max-width: 700px; margin: 0 auto;">
+          <article class="card skill-card">
+            <h3>Security</h3>
+            <div class="tag-list">
+              <span class="tag">OAuth 2.0</span><span class="tag">Basic Authentication</span>
+              <span class="tag">HmacSHA256</span><span class="tag">Access Token Management</span>
+              <span class="tag">Spring Security</span>
+            </div>
+          </article>
 
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">Certified in CCNAv7: Introduction to Networks</h4>
-      <div class="muted" style="font-size: 17px;">by Cisco</div>
-    </div>
+          <article class="card skill-card">
+            <h3>Tools & IDEs</h3>
+            <div class="tag-list">
+              <span class="tag">Git</span><span class="tag">GitHub</span>
+              <span class="tag">Bitbucket</span><span class="tag">SourceTree</span>
+              <span class="tag">Eclipse</span><span class="tag">VS Code</span>
+              <span class="tag">DBeaver</span><span class="tag">MobaXterm</span>
+              <span class="tag">Jira</span><span class="tag">Android Studio</span><span class="tag">MS Office</span>
+              <span class="tag">Tableau</span>
+            </div>
+          </article>
 
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">Achieved Elite Certification in “Programming in Java”</h4>
-      <div class="muted" style="font-size: 17px;">by NPTEL (Swayam)</div>
-    </div>
+          <article class="card skill-card">
+            <h3>Core Concepts & Practices</h3>
+            <div class="tag-list">
+              <span class="tag">Data Structures & Algorithms</span>
+              <span class="tag">Design Patterns</span><span class="tag">Performance Tuning</span>
+              <span class="tag">Code Review</span><span class="tag">Agile Scrum</span>
+              <span class="tag">SDLC</span><span class="tag">STLC</span>
+              <span class="tag">Sprint Planning</span><span class="tag">Daily Stand-ups</span>
+              <span class="tag">Team Collaboration</span><span class="tag">Bug Reporting</span>
+            </div>
+          </article>
 
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">Certified in Introduction to Cybersecurity</h4>
-      <div class="muted" style="font-size: 17px;">by Cisco</div>
-    </div>
+          <article class="card skill-card">
+            <h3>Data Structures & Algorithms</h3>
+            <div class="tag-list">
+              <span class="tag">Arrays</span><span class="tag">Linked Lists</span>
+              <span class="tag">Stacks</span><span class="tag">Queues</span>
+              <span class="tag">Trees</span><span class="tag">Graphs</span>
+              <span class="tag">Hashing</span><span class="tag">Sorting</span>
+              <span class="tag">Searching</span>
+            </div>
+          </article>
 
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">Certified in Oracle SQL</h4>
-      <div class="muted" style="font-size: 17px;">by Coursera</div>
-    </div>
+          <article class="card skill-card">
+            <h3>Operating Systems & Networking</h3>
+            <div class="tag-list">
+              <span class="tag">Windows</span><span class="tag">Linux</span>
+              <span class="tag">Computer Networking</span>
+            </div>
+          </article>
 
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">Certified in Cloud Security Foundation</h4>
-      <div class="muted" style="font-size: 17px;">by AWS Academy</div>
-    </div>
-
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">Certified in Azure Fundamentals</h4>
-      <div class="muted" style="font-size: 17px;">by Microsoft</div>
-    </div>
-
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">Earned Badges and Certification in Android Basics in Kotlin</h4>
-      <div class="muted" style="font-size: 17px;">by Google Developers</div>
-    </div>
-
-    <div class="card" style="padding: 15px; border: 1px solid #ddd; border-radius: 12px; background: #41422a;">
-      <h4 style="font-size: 17px;">Certified in Database Design</h4>
-      <div class="muted" style="font-size: 17px;">by Oracle Academy</div>
-    </div>
-
-  </div>
-</section>
-
-
-<section id="contact" style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;">
-  <div>
-    <h3 class="section-title" style="text-align:center; color: #034cac;">Contact</h3>
-
-    <div class="card" style="text-align: center; width: 900px; margin: 0 auto; border: 1px solid #ddd; border-radius: 12px; background: #41422a; padding: 20px; color: #f5f5f5;">
-      <p style="margin:0; font-size: 18px; text-align: justify;">
-        I’m open to internship and early-career job opportunities in <b>Software Testing</b>, <b>Full Stack Development</b>, and <b>Cloud Engineering</b>. Feel free to reach out!
-      </p>
-
-      <div style="height:14px"></div>
-      <div class="contact-item" style="font-size: 17px;">📧 <strong style="margin-left:6px">disneypallavi@gmail.com</strong></div>
-      <div style="height:8px"></div>
-      <div class="contact-item" style="font-size: 17px;">📞 <strong style="margin-left:6px">+91 9493666333</strong></div>
-      
-      <br><br>
-      <div style="display:flex; justify-content:center; gap:20px; align-items:center; flex-wrap:wrap;">
-        <a href="https://github.com/Disney35" target="_blank">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9LaOgwJe7ld_Aji29KFxposX4JKjlNhDEXw&s" 
-               alt="GitHub" width="60" height="65" />
-        </a>
-      
-        <a href="https://www.linkedin.com/in/bezawada-disney-pallavi/" target="_blank" rel="noopener noreferrer">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/1024px-LinkedIn_icon.svg.png" 
-               alt="LinkedIn" width="60" height="65" />
-        </a>
-      
-        <a href="https://leetcode.com/u/Disney_035/" target="_blank">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeJtxeAdUOh58z60mJBZjDLkU5ucuVeHYHtvKja8_i8gI88cB8ouv5vF4U1eKogcDbBVg&usqp=CAU" 
-               alt="LeetCode" width="60" height="65" />
-        </a>
-      
-        <a href="https://www.codechef.com/users/disney_189" target="_blank">
-          <img src="https://cdn-1.webcatalog.io/catalog/codechef/codechef-icon-filled-256.webp?v=1714773964077" 
-               alt="CodeChef" width="60" height="65" />
-        </a>
-      
-        <a href="https://www.hackerrank.com/profile/pallavidisney19" target="_blank">
-          <img src="https://avatars.githubusercontent.com/u/7596827?v=4" 
-               alt="HackerRank" width="65" height="70" />
-        </a>
+          <article class="card skill-card">
+            <h3>Data Science & Machine Learning</h3>
+            <div class="tag-list">
+              <span class="tag">Machine Learning</span><span class="tag">Deep Learning</span>
+              <span class="tag">CNN</span><span class="tag">TensorFlow</span>
+              <span class="tag">Keras</span><span class="tag">OpenCV</span>
+              <span class="tag">YOLOv8</span><span class="tag">Scikit-learn</span>
+              <span class="tag">PyTorch</span><span class="tag">NumPy</span>
+              <span class="tag">Pandas</span><span class="tag">Matplotlib</span>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">My professional journey</span>
+          <h2>Experience</h2>
+        </div>
+
+        <div class="experience-list">
+          <article class="card experience-card">
+            <div class="experience-meta">
+              <strong>HulkHire</strong>
+              <span>Remote</span>
+              <span>February 2026 – May 2026</span>
+            </div>
+            <div>
+              <h3>Java Backend Developer Trainee</h3>
+              <div class="role-title">Java | Spring Boot | Microservices | AWS</div>
+              <ul class="content-list">
+                <li>Engineered Stripe and PayPal payment integration systems using Java, Spring Boot, REST APIs, Microservices, MySQL, Redis, Kafka, and AWS.</li>
+                <li>Built REST APIs for payment order creation, payment capture, webhook/status handling, request validation, and transaction persistence.</li>
+                <li>Secured API communication using OAuth 2.0, Basic Authentication, HmacSHA256, access token management, and Redis caching.</li>
+                <li>Implemented centralized exception handling, custom error responses, validation logic, and payment status tracking.</li>
+                <li>Used Apache Kafka for asynchronous payment event communication and circuit breaker patterns for fault-tolerant microservices.</li>
+                <li>Deployed and administered backend services on AWS EC2, used AWS RDS for MySQL databases, and configured secrets with AWS Secrets Manager.</li>
+                <li>Wrote unit tests using JUnit and Mockito, performed API testing with Postman, and debugged payment workflow issues.</li>
+                <li>Participated in Agile sprint ceremonies and received Star Performer recognition for project contributions.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card experience-card">
+            <div class="experience-meta">
+              <strong>Qualizeal</strong>
+              <span>Hyderabad</span>
+              <span>July 2024 – December 2024</span>
+            </div>
+            <div>
+              <h3>Associate Software Development Engineer in Testing (ASDET)</h3>
+              <div class="role-title">Software Testing | Selenium | Java | TestNG | Maven</div>
+              <ul class="content-list">
+                <li>Automated 100+ test scripts using Selenium WebDriver, Java, TestNG, and Maven, improving regression testing coverage and execution efficiency.</li>
+                <li>Performed manual testing, requirement analysis, test case validation, and defect tracking; identified and reported 30+ defects.</li>
+                <li>Validated REST APIs using Postman to verify request-response handling and backend communication.</li>
+                <li>Created reusable automation components to reduce repeated scripting effort and improve maintainability.</li>
+                <li>Collaborated with developers to achieve functional and regression test coverage across assigned modules.</li>
+                <li>Participated in Agile ceremonies, including sprint planning and reviews.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card experience-card">
+            <div class="experience-meta">
+              <strong>DataValley</strong>
+              <span>January 2024 – April 2024</span>
+            </div>
+            <div>
+              <h3>Full Stack Developer Intern</h3>
+              <div class="role-title">HTML | CSS | JavaScript | SQL | Java</div>
+              <ul class="content-list">
+                <li>Gained practical experience in core web technologies, including HTML and CSS for structuring and styling web pages, and JavaScript for client-side interactivity.</li>
+                <li>Worked with SQL for database management, querying, and data manipulation.</li>
+                <li>Used Java for backend processes and server-side application functionality.</li>
+                <li>Worked on frontend and backend integration and database queries to support smooth data flow.</li>
+                <li>Built responsive web applications using HTML, CSS, JavaScript, SQL, and Java.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card experience-card">
+            <div class="experience-meta">
+              <strong>Persistent Systems</strong>
+              <span>June 2023 – August 2023</span>
+            </div>
+            <div>
+              <h3>Martin Summer Internship Program</h3>
+              <div class="role-title">Python | Linux | Data Structures | DBMS</div>
+              <ul class="content-list">
+                <li>Gained hands-on experience with Python, Linux, Data Structures, and Database Management Systems.</li>
+                <li>Strengthened programming logic using Python and learned to navigate and manage systems using Linux.</li>
+                <li>Developed an understanding of data organization and manipulation for backend development tasks.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card experience-card">
+            <div class="experience-meta">
+              <strong>Teachnook</strong>
+              <span>August 2022 – September 2022</span>
+            </div>
+            <div>
+              <h3>Web Development and Design Intern</h3>
+              <div class="role-title">HTML | CSS | JavaScript</div>
+              <ul class="content-list">
+                <li>Gained practical experience in web development and design using HTML, CSS, and JavaScript.</li>
+                <li>Used HTML to structure web content, CSS to create responsive layouts, and JavaScript to add interactivity.</li>
+                <li>Built responsive and user-friendly web pages using HTML, CSS, and JavaScript.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Things I have built</span>
+          <h2>Projects</h2>
+          <p>Backend payment systems, automation-oriented applications, and machine learning projects.</p>
+        </div>
+
+        <div class="two-column">
+          <article class="card project-card">
+            <h3>PayPal Payment Integration System</h3>
+            <div class="tag-list">
+              <span class="tag">Java</span><span class="tag">Spring Boot</span>
+              <span class="tag">MySQL</span><span class="tag">Redis</span>
+              <span class="tag">Kafka</span><span class="tag">AWS</span>
+            </div>
+            <ul>
+              <li>Developed a payment integration platform using Spring Boot microservices, enabling PayPal order creation and capture workflows.</li>
+              <li>Implemented payment lifecycle tracking to maintain accurate transaction state transitions.</li>
+              <li>Protected communication using OAuth 2.0 Client Credentials and Basic Authentication, with Redis caching for token handling.</li>
+              <li>Enabled fault-tolerant services using circuit breaker strategies and real-time payment updates through Apache Kafka.</li>
+              <li>Managed persistence using MySQL and deployed services using AWS EC2, AWS RDS, and AWS Secrets Manager.</li>
+              <li>Improved reliability through JUnit and Mockito testing.</li>
+            </ul>
+          </article>
+
+          <article class="card project-card">
+            <h3>Stripe Payment Integration System</h3>
+            <div class="tag-list">
+              <span class="tag">Java</span><span class="tag">Spring Boot</span>
+              <span class="tag">REST APIs</span><span class="tag">Redis</span>
+              <span class="tag">Spring Security</span><span class="tag">AWS</span>
+            </div>
+            <ul>
+              <li>Developed a secure Stripe integration system handling session APIs and webhook-driven workflows.</li>
+              <li>Designed modular services with a flexible business validation framework.</li>
+              <li>Used Redis caching to optimize validation logic and improve response efficiency.</li>
+              <li>Protected APIs using HmacSHA256 with Spring Security and Basic Authentication.</li>
+              <li>Strengthened system stability through exception handling and structured error management.</li>
+              <li>Leveraged MySQL and AWS services while applying design patterns for scalable architecture.</li>
+            </ul>
+          </article>
+
+          <article class="card project-card">
+            <h3>Detection & Classification of Potholes using CNN</h3>
+            <div class="tag-list">
+              <span class="tag">Python</span><span class="tag">OpenCV</span>
+              <span class="tag">CNN</span><span class="tag">YOLOv8</span>
+              <span class="tag">TensorFlow</span>
+            </div>
+            <ul>
+              <li>Developed a computer vision-based system to automatically detect and classify road surfaces as plain or containing potholes using deep learning techniques.</li>
+              <li>Collected and preprocessed road images using OpenCV for noise reduction, contrast enhancement, and image normalization.</li>
+              <li>Implemented the YOLOv8 algorithm for real-time object detection and identification of pothole regions.</li>
+              <li>Trained and fine-tuned a CNN on a custom dataset to differentiate between smooth and damaged road surfaces.</li>
+              <li>Integrated a Python-based email automation module to notify concerned authorities with image evidence and GPS coordinates.</li>
+              <li>Tested the system under varying lighting and weather conditions to evaluate its performance.</li>
+              <li>Demonstrated the potential for real-time use in smart city road maintenance systems.</li>
+            </ul>
+          </article>
+
+          <article class="card project-card">
+            <h3>Facial Feature and Emotion Detection using CNN</h3>
+            <div class="tag-list">
+              <span class="tag">Python</span><span class="tag">OpenCV</span>
+              <span class="tag">CNN</span><span class="tag">TensorFlow</span>
+              <span class="tag">Keras</span>
+            </div>
+            <ul>
+              <li>Developed a deep learning-based facial feature detection system capable of recognizing human emotions and gender using Convolutional Neural Networks (CNNs).</li>
+              <li>Collected and preprocessed facial image datasets using OpenCV techniques such as face detection, grayscale conversion, normalization, and resizing.</li>
+              <li>Implemented a multi-layer CNN architecture using TensorFlow and Keras to extract features and classify facial attributes.</li>
+              <li>Trained the model to recognize emotions such as happiness, anger, sadness, surprise, and neutrality.</li>
+              <li>Integrated an additional classification module to predict gender based on detected facial features.</li>
+              <li>Evaluated performance using accuracy, F1-score, and confusion matrix, and fine-tuned model parameters.</li>
+              <li>Tested the system using real-time webcam input for live emotion and gender detection.</li>
+            </ul>
+          </article>
+
+          <article class="card project-card">
+  <h3>Payment Orchestration Platform</h3>
+
+  <div class="tag-list">
+    <span class="tag">Java 17</span>
+    <span class="tag">Spring Boot 3</span>
+    <span class="tag">PostgreSQL</span>
+    <span class="tag">Spring Security</span>
+    <span class="tag">Docker</span>
+    <span class="tag">REST APIs</span>
+    <span class="tag">Swagger</span>
+    <span class="tag">Maven</span>
   </div>
-</section>
 
+  <ul>
+    <li>Developed a payment orchestration platform using Java 17, Spring Boot 3, and PostgreSQL to manage transactions across multiple payment gateways.</li>
+    <li>Implemented intelligent multi-gateway routing with dynamic gateway selection, gateway health monitoring, automatic failover, and retry mechanisms.</li>
+    <li>Integrated support for Razorpay, Stripe, PayU, and UPI payment gateways.</li>
+    <li>Implemented payment lifecycle management covering authorization, capture, partial refunds, full refunds, void operations, and transaction tracking.</li>
+    <li>Applied circuit breaker, idempotency, and duplicate request protection to improve payment reliability and prevent repeated transaction processing.</li>
+    <li>Developed secure webhook processing with HMAC signature validation, duplicate event detection, event persistence, and payment status updates.</li>
+    <li>Built payment reconciliation, gateway health monitoring, transaction analytics, and dashboard APIs.</li>
+    <li>Configured Docker-based deployment, Swagger OpenAPI documentation, and Postman collections for API testing.</li>
+  </ul>
+</article>
 
+<article class="card project-card">
+  <h3>GrowEasy AI-Powered CSV Importer</h3>
 
-    <footer style="text-align: center; color: #3207f1; padding: 20px 0; font-size: 18px;">
-  © 2025 Bezawada Disney Pallavi — Built with ❤️💚❤️
-</footer>
+  <div class="tag-list">
+    <span class="tag">Next.js</span>
+    <span class="tag">React</span>
+    <span class="tag">TypeScript</span>
+    <span class="tag">Node.js</span>
+    <span class="tag">Express.js</span>
+    <span class="tag">Google Gemini AI</span>
+    <span class="tag">Docker</span>
+    <span class="tag">Vitest</span>
+    <span class="tag">Vercel</span>
+    <span class="tag">Render</span>
+  </div>
+
+  <ul>
+    <li>Developed an AI-powered CSV importer that converts messy and inconsistent CSV files into clean, structured GrowEasy CRM lead records using Google Gemini AI.</li>
+    <li>Implemented flexible CSV parsing and preview functionality to handle arbitrary column names, different column orders, missing values, and inconsistent data formats.</li>
+    <li>Integrated Gemini AI for intelligent field mapping, customer contact extraction, lead status normalization, and CRM data transformation.</li>
+    <li>Implemented batch-based AI processing with automatic retries, structured JSON validation, and error handling to improve processing reliability.</li>
+    <li>Added customer contact validation, mobile number normalization, duplicate event handling, and separation of imported and skipped records with reasons.</li>
+    <li>Developed import statistics displaying total records, successfully imported records, skipped records, and success rate.</li>
+    <li>Built a responsive user interface with drag-and-drop CSV upload, data preview, processing indicators, and dark and light themes.</li>
+    <li>Implemented backend unit testing using Vitest and configured multi-stage Docker builds and Docker Compose for deployment.</li>
+    <li>Deployed the frontend on Vercel and backend on Render, and successfully tested the complete production workflow with 6 rows, 5 imported records, 1 skipped record, and an 83% success rate.</li>
+  </ul>
+</article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Academic background</span>
+          <h2>Education</h2>
+        </div>
+        <div class="three-column">
+          <article class="card education-card">
+            <h3>Bachelor of Technology</h3>
+            <p><strong>Computer Science & Engineering</strong></p>
+            <p>Shri Vishnu Engineering College for Women</p>
+            <p>Bhimavaram | 2021 – 2024</p>
+            <p>CGPA: 8.32</p>
+          </article>
+          <article class="card education-card">
+            <h3>Diploma</h3>
+            <p><strong>Computer Engineering</strong></p>
+            <p>AANMVVRSR Polytechnic College</p>
+            <p>June 2018 – April 2021</p>
+          </article>
+          <article class="card education-card">
+            <h3>SSC</h3>
+            <p><strong>St Paul's High School</strong></p>
+            <p>June 2017 – April 2018</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Learning and achievements</span>
+          <h2>Certifications</h2>
+        </div>
+        <div class="card cert-list">
+          <div class="cert-item"><span class="cert-icon">✦</span><div><strong>Software Testing</strong><div class="muted">Coursera</div></div></div>
+          <div class="cert-item"><span class="cert-icon">✦</span><div><strong>Black Box and White Box Testing</strong><div class="muted">Coursera</div></div></div>
+          <div class="cert-item"><span class="cert-icon">✦</span><div><strong>Programming in Java – Elite Certification</strong><div class="muted">NPTEL (Swayam)</div></div></div>
+          <div class="cert-item"><span class="cert-icon">✦</span><div><strong>CCNAv7: Introduction to Networks</strong><div class="muted">Cisco</div></div></div>
+          <div class="cert-item"><span class="cert-icon">✦</span><div><strong>Introduction to Cybersecurity</strong><div class="muted">Cisco</div></div></div>
+          <div class="cert-item"><span class="cert-icon">✦</span><div><strong>Oracle SQL</strong><div class="muted">Coursera</div></div></div>
+          <div class="cert-item"><span class="cert-icon">✦</span><div><strong>Cloud Security Foundation</strong><div class="muted">AWS Academy</div></div></div>
+          <div class="cert-item"><span class="cert-icon">✦</span><div><strong>Azure Fundamentals</strong><div class="muted">Microsoft</div></div></div>
+          <div class="cert-item"><span class="cert-icon">✦</span><div><strong>Android Basics in Kotlin</strong><div class="muted">Google Developers</div></div></div>
+          <div class="cert-item"><span class="cert-icon">✦</span><div><strong>Database Design</strong><div class="muted">Oracle Academy</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="section" id="leadership">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Beyond academics</span>
+          <h2>Leadership & Positions of Responsibility</h2>
+        </div>
+        <div class="two-column">
+          <article class="card leadership-card">
+            <h3>Student Lead – PALS</h3>
+            <div class="date">October 2022 – June 2024</div>
+            <ul class="content-list">
+              <li>Led student engagement initiatives and coordinated workshops, events, and campus programs.</li>
+              <li>Coordinated communication between 60+ students, faculty, and event organizers.</li>
+              <li>Supported student participation, leadership development, and smooth event coordination.</li>
+            </ul>
+          </article>
+          <article class="card leadership-card">
+            <h3>Class Representative – B.Tech CSE</h3>
+            <div class="date">December 2021 – June 2024</div>
+            <ul class="content-list">
+              <li>Acted as a liaison between faculty members and 60+ students.</li>
+              <li>Facilitated communication of academic updates, schedules, and student feedback to the department.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Let's connect</span>
+          <h2>Contact Me</h2>
+          <p>I am open to opportunities in Java Backend Development, Software Testing, and Software Engineering.</p>
+        </div>
+        <div class="card contact-card">
+          <div class="contact-details">
+            <div class="contact-detail">📧 <a href="mailto:disneypallavi@gmail.com">disneypallavi@gmail.com</a></div>
+            <div class="contact-detail">📞 <a href="tel:+919493666333">+91 9493666333</a></div>
+            <div class="contact-detail">📍 Vijayawada, Andhra Pradesh, India</div>
+            <div class="contact-detail">💼 Open to Software Engineering Opportunities</div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/Disney35" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/bezawada-disney-pallavi/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          </div>
+          <div id="currentTime" aria-live="off"></div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <footer>
+    <div class="container">
+      © <span id="year"></span> <strong>Bezawada Disney Pallavi</strong> — Built with ❤️
+    </div>
+  </footer>
+
   <script>
-    // Minimal JS interactivity (compiled from TypeScript source available below)
-    (function(){
-      const downloadBtn = document.getElementById('downloadResume');
-      downloadBtn?.addEventListener('click', ()=>{
-        const resumeUrl = 'resume.pdf'; // replace with your resume PDF path
-        window.open(resumeUrl, '_blank');
-      });
+    // Mobile navigation menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
 
-      // Simple scrollspy to update active nav link
-      const sections = Array.from(document.querySelectorAll('section'));
-      const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
-      function onScroll(){
-        const y = window.scrollY + 120;
-        for(const s of sections){
-          const top = s.getBoundingClientRect().top + window.scrollY;
-          const id = s.getAttribute('id');
-          if(!id) continue;
-          const link = document.querySelector('.nav-links a[href="#'+id+'"]');
-          if(y >= top && y < top + s.offsetHeight){
-            link?.classList.add('active');
-          } else link?.classList.remove('active');
-        }
-      }
-      window.addEventListener('scroll', onScroll);
-      onScroll();
-
-      // Mobile nav toggle
-      const mq = window.matchMedia('(max-width:920px)');
-      function ensureMobileNav(){
-        if(mq.matches){
-          const nav = document.querySelector('.nav-inner');
-          const burger = document.createElement('button');
-          burger.textContent = '☰';
-          burger.style.padding = '8px 10px';
-          burger.style.borderRadius = '10px';
-          burger.style.background = 'transparent';
-          burger.style.color = 'var(--muted)';
-          burger.onclick = ()=>{
-            const links = document.querySelector('.nav-links');
-            if(links) links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-          };
-          nav?.appendChild(burger);
-          const links = document.querySelector('.nav-links');
-          if(links) links.style.display = 'none';
-        }
-      }
-      ensureMobileNav();
-      window.addEventListener('resize', ensureMobileNav);
-    })();
-  </script>
-
-  <!--
-    TypeScript source (main.ts)
-
-    Copy this into main.ts and compile with `tsc main.ts --target ES2019 --module es2020` or use your bundler.
-
-    ------------------- main.ts -------------------
-    const downloadBtn = document.getElementById('downloadResume') as HTMLButtonElement | null;
-    downloadBtn?.addEventListener('click', () => {
-      const resumeUrl = 'resume.pdf';
-      window.open(resumeUrl, '_blank');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.textContent = isOpen ? '✕' : '☰';
     });
 
-    const sections: HTMLElement[] = Array.from(document.querySelectorAll('section')) as HTMLElement[];
-    const navLinks = Array.from(document.querySelectorAll('.nav-links a')) as HTMLAnchorElement[];
+    // Close the mobile menu after selecting a navigation link
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      });
+    });
 
-    function onScroll() {
-      const y = window.scrollY + 120;
-      for (const s of sections) {
-        const top = s.getBoundingClientRect().top + window.scrollY;
-        const id = s.getAttribute('id');
-        if (!id) continue;
-        const link = document.querySelector('.nav-links a[href="#' + id + '"]');
-        if (y >= top && y < top + s.offsetHeight) {
-          link?.classList.add('active');
-        } else link?.classList.remove('active');
+    // Highlight the navigation link for the section currently in view
+    const pageSections = document.querySelectorAll('main section[id]');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.querySelectorAll('a').forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-25% 0px -65% 0px' });
+
+    pageSections.forEach((section) => sectionObserver.observe(section));
+
+    // Current local time and automatic copyright year
+    function updateClock() {
+      const clock = document.getElementById('currentTime');
+      if (clock) {
+        clock.textContent = 'Current time: ' + new Date().toLocaleString('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          dateStyle: 'medium',
+          timeStyle: 'medium'
+        });
       }
     }
 
-    window.addEventListener('scroll', onScroll);
-    onScroll();
-
-    // Mobile nav toggle
-    const mq = window.matchMedia('(max-width:920px)');
-    function ensureMobileNav() {
-      if (mq.matches) {
-        const nav = document.querySelector('.nav-inner');
-        const burger = document.createElement('button');
-        burger.textContent = '☰';
-        burger.style.padding = '8px 10px';
-        burger.style.borderRadius = '10px';
-        burger.style.background = 'transparent';
-        burger.style.color = 'var(--muted)';
-        burger.onclick = () => {
-          const links = document.querySelector('.nav-links');
-          if (links) links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
-        };
-        nav?.appendChild(burger);
-        const links = document.querySelector('.nav-links');
-        if (links) (links as HTMLElement).style.display = 'none';
-      }
-    }
-    ensureMobileNav();
-    window.addEventListener('resize', ensureMobileNav);
-    ----------------- end main.ts -----------------
-  -->
+    updateClock();
+    setInterval(updateClock, 1000);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
