@@ -1,7 +1,7 @@
 # 🌐 Bezawada Disney Pallavi — Portfolio
 
-Welcome to my personal portfolio website!  
-This site highlights my **skills**, **projects**, and **professional journey** in **Software Development**, **Testing**, and **Cloud Technologies**.
+Welcome to My Personal Portfolio Website!  
+This site highlights my **skills**, **projects**, and **professional journey** in **Software Development**, **Testing**.
 
 ---
 
